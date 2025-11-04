@@ -21,6 +21,9 @@ Incluye integración embebida, enlaces a mis tableros públicos y un diseño res
   - 🌐 Abrir tablero en nueva pestaña  
   - ⬆️ Volver al principio  
 
+
+> 🔒 **Nota:** Los tableros están disponibles únicamente en modo visualización pública para proteger la propiedad intelectual de los proyectos.
+
 ---
 
 ## 🧠 Tecnologías utilizadas
@@ -36,5 +39,3 @@ Incluye integración embebida, enlaces a mis tableros públicos y un diseño res
 - 📜 **index.html:** Archivo principal con menú y tableros embebidos
 - 📜 **README.md:** Documentación del proyecto
   
-
-> 🔒 **Nota:** Los tableros están disponibles únicamente en modo visualización pública para proteger la propiedad intelectual de los proyectos.
