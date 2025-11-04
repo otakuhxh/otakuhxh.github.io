@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portafolio Power BI — Menú</title>
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1320; --accent:#0ea5ff; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:linear-gradient(180deg,#071025 0%, #071a2a 100%); color:#e6eef8;}
+    .wrap{max-width:1100px;margin:36px auto;padding:24px}
+
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6ee7b7);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022f3a}
+    h1{font-size:20px;margin:0}
+    p.lead{color:var(--muted);margin:4px 0 0;font-size:13px}
+
+    /* Menu grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:10px}
+    .card-head{display:flex;align-items:center;gap:10px}
+    .thumb{width:40px;height:40px;border-radius:8px;background:var(--glass);display:flex;align-items:center;justify-content:center}
+    .thumb img{width:20px;height:20px;object-fit:contain}
+    .title{font-weight:600}
+    .meta{color:var(--muted);font-size:13px}
+    .card p{margin:0;color:var(--muted);font-size:13px}
+
+    .actions{display:flex;gap:8px;margin-top:8px}
+    .btn{appearance:none;border:0;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#8b5cf6);color:#022031}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Dashboard view */
+    #dashboardView{display:none;margin-top:20px}
+    .embed-wrap{background:#071426;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
+    iframe{width:100%;height:640px;border:0;border-radius:8px;background:#000}
+
+    .top-actions{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
+    .breadcrumbs{color:var(--muted);font-size:13px}
+
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media (max-width:520px){iframe{height:520px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">PB</div>
+      <div>
+        <h1>Portafolio Power BI — Mis proyectos</h1>
+        <p class="lead">Selecciona un proyecto para ver detalles o abrir el tablero. Usa el botón de cada tarjeta para ver el tablero integrado.</p>
+      </div>
+    </header>
+
+    <!-- Menu de proyectos -->
+    <section id="menuView">
+      <div class="grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" alt="MS"/></div>
+            <div>
+              <div class="title">Análisis de Ventas — Retail</div>
+              <div class="meta">Power BI · Ventas, KPI, Forecast</div>
+            </div>
+          </div>
+          <p>Tablero con KPIs de ventas, análisis por región y pronóstico trimestral. Incluye filtros por categoría y drill-through.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/view?r=EXAMPLE_EMBED_ID_1">Ver tablero</button>
+            <a class="btn btn-outline" href="https://github.com/tu-usuario/proyecto-ventas" target="_blank" rel="noopener">Código / Documentación</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googleanalytics.svg" alt="GA"/></div>
+            <div>
+              <div class="title">Monitoreo Métricas Web</div>
+              <div class="meta">Power BI · Web analytics</div>
+            </div>
+          </div>
+          <p>Panel que combina datos de Google Analytics y logs de servidor para medir comportamiento de usuarios y conversiones.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/view?r=EXAMPLE_EMBED_ID_2">Ver tablero</button>
+            <a class="btn btn-outline" href="https://github.com/tu-usuario/analytics-dashboard" target="_blank" rel="noopener">Repositorio</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/airtable.svg" alt="AT"/></div>
+            <div>
+              <div class="title">Inventario IoT — Operaciones</div>
+              <div class="meta">Power BI · IoT · Series temporales</div>
+            </div>
+          </div>
+          <p>Tablero orientado a IoT con series temporales, alertas y mapas. Ideal para visualizar telemetría y disponibilidad de activos.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/view?r=EXAMPLE_EMBED_ID_3">Ver tablero</button>
+            <a class="btn btn-outline" href="https://github.com/tu-usuario/iot-inventory" target="_blank" rel="noopener">Detalles</a>
+          </div>
+        </article>
+
+        <!-- Card 4 (ejemplo, añade más) -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="T"/></div>
+            <div>
+              <div class="title">Benchmark y Reporting Ejecutivo</div>
+              <div class="meta">Power BI · Reportes ejecutivos</div>
+            </div>
+          </div>
+          <p>Conjunto de reportes diseñado para la dirección: métricas resumidas, comparativos y exportables en PDF.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/view?r=EXAMPLE_EMBED_ID_4">Ver tablero</button>
+            <a class="btn btn-outline" href="https://github.com/tu-usuario/executive-reports" target="_blank" rel="noopener">Ver</a>
+          </div>
+        </article>
+
+      </div>
+
+      <footer>
+        ¿Quieres que añada más detalles por tarjeta (datasets, orígenes, transformaciones)? Puedo adaptar el diseño.
+      </footer>
+    </section>
+
+    <!-- Vista del Tablero (misma página) -->
+    <section id="dashboardView">
+      <div class="top-actions">
+        <div>
+          <button class="btn btn-outline" id="backToMenu">← Volver al menú</button>
+        </div>
+        <div class="breadcrumbs">Home / Proyectos / <span id="dashTitle">Tablero</span></div>
+      </div>
+
+      <div class="embed-wrap">
+        <!-- Aquí va el iframe del reporte Power BI. Sustituye el src por tu enlace embebible. -->
+        <iframe id="embedIframe" src="about:blank" title="Power BI Report Embed" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px;flex-wrap:wrap">
+        <div style="color:var(--muted);font-size:13px">Sugerencia: usa control+click para abrir el reporte en una nueva pestaña si quieres ver la versión completa en Power BI Service.</div>
+        <div>
+          <button class="btn btn-outline" id="openNewTab">Abrir en nueva pestaña</button>
+          <button class="btn btn-primary" id="scrollTop">Volver al principio</button>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    // Navegación simple entre "vistas" dentro del mismo archivo
+    const menuView = document.getElementById('menuView');
+    const dashboardView = document.getElementById('dashboardView');
+    const embedIframe = document.getElementById('embedIframe');
+    const dashTitle = document.getElementById('dashTitle');
+
+    // Al hacer click en cualquier botón "Ver tablero" abrimos la vista del dashboard
+    document.querySelectorAll('button[data-target="dashboardView"]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const embedUrl = btn.getAttribute('data-embed');
+        const projectTitle = btn.closest('.card').querySelector('.title').innerText;
+        // Si el enlace de embed es el placeholder, mostramos mensaje y usamos about:blank
+        if(!embedUrl || embedUrl.includes('EXAMPLE_EMBED_ID')){
+          embedIframe.src = 'about:blank';
+          // opción: puedes poner una imagen o mensaje si no quieres iframe vacío
+        } else {
+          embedIframe.src = embedUrl;
+        }
+        dashTitle.innerText = projectTitle;
+
+        menuView.style.display = 'none';
+        dashboardView.style.display = 'block';
+        window.scrollTo({top:0,behavior:'smooth'});
+      })
+    })
+
+    // Volver al menú
+    document.getElementById('backToMenu').addEventListener('click', ()=>{
+      dashboardView.style.display = 'none';
+      menuView.style.display = 'block';
+      window.scrollTo({top:0,behavior:'smooth'});
+    })
+
+    // Abrir el iframe en nueva pestaña (usa el src actual)
+    document.getElementById('openNewTab').addEventListener('click', ()=>{
+      const url = embedIframe.src;
+      if(!url || url === 'about:blank'){
+        alert('No hay enlace embebido configurado. Reemplaza los data-embed con tu URL de Power BI.');
+        return;
+      }
+      window.open(url, '_blank', 'noopener');
+    })
+
+    // Botón que vuelve al principio de la página
+    document.getElementById('scrollTop').addEventListener('click', ()=>{
+      window.scrollTo({top:0,behavior:'smooth'});
+    })
+
+    // Al cargar, mostrar el menú (útil si vuelves a la página)
+    menuView.style.display = 'block';
+    dashboardView.style.display = 'none';
+  </script>
+</body>
+</html>
