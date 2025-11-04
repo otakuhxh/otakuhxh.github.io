@@ -3,83 +3,453 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Portafolio | Tiffany Jordan</title>
+  <title>Portafolio de Dashboards | Tiffany Jordan - Analista de Datos</title>
   <style>
     :root{
-      --bg:#0f1724; --card:#0b1320; --accent:#0ea5ff; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
-      --radius:12px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --bg: #0a0f1c;
+      --card: #101827;
+      --accent: #0ea5ff;
+      --accent-hover: #38bdf8;
+      --secondary: #8b5cf6;
+      --muted: #94a3b8;
+      --text: #f1f5f9;
+      --glass: rgba(255,255,255,0.05);
+      --radius: 16px;
+      --shadow: 0 10px 25px rgba(2, 6, 23, 0.7);
+      --transition: all 0.3s ease;
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    *{box-sizing:border-box}
-    body{margin:0; background:linear-gradient(180deg,#071025 0%, #071a2a 100%); color:#e6eef8;}
-    .wrap{max-width:1100px;margin:36px auto;padding:24px}
+    
+    *{box-sizing:border-box; margin:0; padding:0}
+    
+    body{
+      margin:0; 
+      background: linear-gradient(135deg, #071025 0%, #0f1a2e 50%, #071a2a 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    
+    .wrap{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
 
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6ee7b7);display:flex;align-items:center;justify-content:center;font-weight:700;color:#022f3a}
-    h1{font-size:20px;margin:0}
-    p.lead{color:var(--muted);margin:4px 0 0;font-size:13px}
+    header{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .logo{
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #022f3a;
+      font-size: 20px;
+      box-shadow: 0 4px 12px rgba(14, 165, 255, 0.3);
+      transition: var(--transition);
+    }
+    
+    .logo:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(14, 165, 255, 0.4);
+    }
+    
+    .header-text h1{
+      font-size: 28px;
+      margin: 0;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    .header-text p.lead{
+      color: var(--muted);
+      margin: 8px 0 0;
+      font-size: 16px;
+      max-width: 600px;
+    }
 
     /* Menu grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:10px}
-    .card-head{display:flex;align-items:center;gap:10px}
-    .thumb{width:40px;height:40px;border-radius:8px;background:var(--glass);display:flex;align-items:center;justify-content:center}
-    .thumb img{width:20px;height:20px;object-fit:contain}
-    .title{font-weight:600}
-    .meta{color:var(--muted);font-size:13px}
-    .card p{margin:0;color:var(--muted);font-size:13px}
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: var(--text);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .section-title::before {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 22px;
+      background: linear-gradient(to bottom, var(--accent), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 20px;
+    }
+    
+    .card{
+      background: linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition);
+      height: 100%;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(2, 6, 23, 0.8);
+      border-color: rgba(14, 165, 255, 0.2);
+    }
+    
+    .card-head{
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    
+    .thumb{
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .thumb img{
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    
+    .title{
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    
+    .meta{
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
 
-    .actions{display:flex;gap:8px;margin-top:8px}
-    .btn{appearance:none;border:0;padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#8b5cf6);color:#022031}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .actions{
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    
+    .btn{
+      appearance: none;
+      border: 0;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 14px;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn-primary{
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      color: white;
+      box-shadow: 0 4px 12px rgba(14, 165, 255, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(90deg, var(--accent-hover), #9d78f7);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(14, 165, 255, 0.4);
+    }
+    
+    .btn-outline{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.2);
+      color: var(--text);
+    }
 
     /* Dashboard view */
-    #dashboardView{display:none;margin-top:20px}
-    .embed-wrap{background:#071426;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.03)}
-    iframe{width:100%;height:640px;border:0;border-radius:8px;background:#000}
+    #dashboardView{
+      display: none;
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .embed-wrap{
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: var(--shadow);
+    }
+    
+    iframe{
+      width: 100%;
+      height: 640px;
+      border: 0;
+      border-radius: 12px;
+      background: #000;
+    }
 
-    .top-actions{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:8px}
-    .breadcrumbs{color:var(--muted);font-size:13px}
+    .top-actions{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .breadcrumbs{
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    .breadcrumbs span {
+      color: var(--accent);
+      font-weight: 500;
+    }
 
-    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    footer{
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* Loading indicator */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+    }
+    
+    .loading-spinner {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      border-top-color: var(--accent);
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
     /* responsive */
-    @media (max-width:520px){iframe{height:520px}}
+    @media (max-width: 768px){
+      .wrap {
+        padding: 24px 16px;
+      }
+      
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .top-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      iframe {
+        height: 500px;
+      }
+      
+      .actions {
+        flex-wrap: wrap;
+      }
+    }
+    
+    @media (max-width: 480px){
+      iframe {
+        height: 400px;
+      }
+      
+      .header-text h1 {
+        font-size: 24px;
+      }
+      
+      .card {
+        padding: 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
       <div class="logo">TAJU</div>
-      <div>
-        <h1>Dashboards y Análisis de Datos | Tiffany Jordan</h1>
-        <p class="lead">Usa el botón de cada tarjeta para ver el tablero.</p>
+      <div class="header-text">
+        <h1>Portafolio de Dashboards | Tiffany Jordan</h1>
+        <p class="lead">Analista de datos especializada en visualización y business intelligence. Explora mis proyectos de análisis de datos interactivos.</p>
       </div>
     </header>
 
     <!-- Menu de proyectos -->
     <section id="menuView">
+      <h2 class="section-title">Proyectos Destacados</h2>
+      
       <div class="grid">
         <!-- Card 1 -->
         <article class="card">
           <div class="card-head">
-            <div class="thumb"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg" alt="MS"/></div>
+            <div class="thumb">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftpowerbi.svg" alt="Power BI"/>
+            </div>
             <div>
               <div class="title">Análisis de los Países Campeones Mundiales de Fútbol (1930 - 2022)</div>
               <div class="meta">Power BI · Deportes · Estadísticas</div>
             </div>
           </div>
-          <p>Tablero que muestra métricas de los países ganadores de los mundiales de fútbol desde 1930 a 2022.</p>
+          <p>Dashboard interactivo que analiza métricas históricas de los países ganadores de los mundiales de fútbol desde 1930 a 2022, incluyendo análisis de rendimiento, comparativas entre continentes y evolución del juego.</p>
           <div class="actions">
-            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/reportEmbed?reportId=596180d0-aa38-48b7-85ed-87035c77c2e6&autoAuth=true&ctid=ffa694f2-ff79-47de-8eb1-a215d3267177">Ver tablero</button>
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://app.powerbi.com/reportEmbed?reportId=596180d0-aa38-48b7-85ed-87035c77c2e6&autoAuth=true&ctid=ffa694f2-ff79-47de-8eb1-a215d3267177">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 12L8 5V19L15 12Z" fill="currentColor"/>
+              </svg>
+              Ver Dashboard
+            </button>
+            <button class="btn btn-outline" data-info="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Info
+            </button>
+          </div>
+        </article>
+        
+        <!-- Card 2 - Ejemplo adicional -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tableau.svg" alt="Tableau"/>
+            </div>
+            <div>
+              <div class="title">Análisis de Ventas Globales - Retail</div>
+              <div class="meta">Tableau · Retail · Business Intelligence</div>
+            </div>
+          </div>
+          <p>Dashboard completo de análisis de ventas para empresa retail con segmentación por regiones, categorías de productos y análisis de tendencias temporales para identificar oportunidades de crecimiento.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://public.tableau.com/views/SampleSuperstore_16764015541610/Dashboard">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 12L8 5V19L15 12Z" fill="currentColor"/>
+              </svg>
+              Ver Dashboard
+            </button>
+            <button class="btn btn-outline" data-info="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Info
+            </button>
+          </div>
+        </article>
+        
+        <!-- Card 3 - Ejemplo adicional -->
+        <article class="card">
+          <div class="card-head">
+            <div class="thumb">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googleanalytics.svg" alt="Google Analytics"/>
+            </div>
+            <div>
+              <div class="title">Análisis de Tráfico Web y Conversiones</div>
+              <div class="meta">Data Studio · Marketing Digital · UX</div>
+            </div>
+          </div>
+          <p>Reporte integral de análisis de tráfico web, comportamiento de usuarios, tasas de conversión y embudos de ventas para optimización de estrategias de marketing digital.</p>
+          <div class="actions">
+            <button class="btn btn-primary" data-target="dashboardView" data-embed="https://datastudio.google.com/embed/reporting/1LxyQOTrn4w5QPVeNQz6hGfU-FtWQtQDf/page/1M">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 12L8 5V19L15 12Z" fill="currentColor"/>
+              </svg>
+              Ver Dashboard
+            </button>
+            <button class="btn btn-outline" data-info="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Info
+            </button>
           </div>
         </article>
 
       </div>
 
       <footer>
-        
+        <p>© 2023 Tiffany Jordan - Analista de Datos | Todos los dashboards son ejemplos de trabajo profesional</p>
       </footer>
     </section>
 
@@ -87,21 +457,45 @@
     <section id="dashboardView">
       <div class="top-actions">
         <div>
-          <button class="btn btn-outline" id="backToMenu">← Volver al menú</button>
+          <button class="btn btn-outline" id="backToMenu">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Volver al Portafolio
+          </button>
         </div>
-        <div class="breadcrumbs">Home / Proyectos / <span id="dashTitle">Tablero</span></div>
+        <div class="breadcrumbs">Inicio / <span id="dashTitle">Dashboard</span></div>
+      </div>
+
+      <div class="loading" id="loadingIndicator">
+        <div class="loading-spinner"></div>
+        Cargando dashboard...
       </div>
 
       <div class="embed-wrap">
-        <!-- Aquí va el iframe del reporte Power BI. Sustituye el src por tu enlace embebible. -->
         <iframe id="embedIframe" src="about:blank" title="Power BI Report Embed" allowfullscreen sandbox="allow-same-origin allow-scripts allow-popups"></iframe>
       </div>
 
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px;flex-wrap:wrap">
-        <div style="color:var(--muted);font-size:13px">Sugerencia: usa control+click para abrir el reporte en una nueva pestaña si quieres ver la versión completa en Power BI Service.</div>
-        <div>
-          <button class="btn btn-outline" id="openNewTab">Abrir en nueva pestaña</button>
-          <button class="btn btn-primary" id="scrollTop">Volver al principio</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:12px;flex-wrap:wrap">
+        <div style="color:var(--muted);font-size:14px">
+          💡 Sugerencia: Usa control+click para abrir el dashboard en una nueva pestaña si quieres ver la versión completa en Power BI Service.
+        </div>
+        <div style="display:flex;gap:8px">
+          <button class="btn btn-outline" id="openNewTab">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Abrir en nueva pestaña
+          </button>
+          <button class="btn btn-primary" id="scrollTop">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 14L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Volver arriba
+          </button>
         </div>
       </div>
 
@@ -110,53 +504,86 @@
   </div>
 
   <script>
-    // Navegación simple entre "vistas" dentro del mismo archivo
+    // Elementos principales
     const menuView = document.getElementById('menuView');
     const dashboardView = document.getElementById('dashboardView');
     const embedIframe = document.getElementById('embedIframe');
     const dashTitle = document.getElementById('dashTitle');
+    const loadingIndicator = document.getElementById('loadingIndicator');
 
-    // Al hacer click en cualquier botón "Ver tablero" abrimos la vista del dashboard
-    document.querySelectorAll('button[data-target="dashboardView"]').forEach(btn=>{
-      btn.addEventListener('click', e=>{
+    // Función para mostrar información del proyecto
+    function showProjectInfo(card) {
+      const title = card.querySelector('.title').innerText;
+      const meta = card.querySelector('.meta').innerText;
+      const description = card.querySelector('p').innerText;
+      
+      alert(`Información del proyecto:\n\nTítulo: ${title}\n\nTecnologías: ${meta}\n\nDescripción: ${description}`);
+    }
+
+    // Al hacer click en cualquier botón "Ver Dashboard"
+    document.querySelectorAll('button[data-target="dashboardView"]').forEach(btn => {
+      btn.addEventListener('click', e => {
         const embedUrl = btn.getAttribute('data-embed');
         const projectTitle = btn.closest('.card').querySelector('.title').innerText;
+        
+        // Mostrar indicador de carga
+        loadingIndicator.style.display = 'block';
+        embedIframe.style.display = 'none';
+        
         // Si el enlace de embed es el placeholder, mostramos mensaje y usamos about:blank
         if(!embedUrl || embedUrl.includes('EXAMPLE_EMBED_ID')){
           embedIframe.src = 'about:blank';
-          // opción: puedes poner una imagen o mensaje si no quieres iframe vacío
+          setTimeout(() => {
+            loadingIndicator.style.display = 'none';
+            embedIframe.style.display = 'block';
+          }, 1000);
         } else {
           embedIframe.src = embedUrl;
+          // Ocultar loading cuando el iframe cargue
+          embedIframe.onload = () => {
+            loadingIndicator.style.display = 'none';
+            embedIframe.style.display = 'block';
+          };
         }
+        
         dashTitle.innerText = projectTitle;
 
         menuView.style.display = 'none';
         dashboardView.style.display = 'block';
         window.scrollTo({top:0,behavior:'smooth'});
-      })
-    })
+      });
+    });
+
+    // Botones de información
+    document.querySelectorAll('button[data-info="true"]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const card = btn.closest('.card');
+        showProjectInfo(card);
+      });
+    });
 
     // Volver al menú
-    document.getElementById('backToMenu').addEventListener('click', ()=>{
+    document.getElementById('backToMenu').addEventListener('click', () => {
       dashboardView.style.display = 'none';
       menuView.style.display = 'block';
+      embedIframe.src = 'about:blank';
       window.scrollTo({top:0,behavior:'smooth'});
-    })
+    });
 
     // Abrir el iframe en nueva pestaña (usa el src actual)
-    document.getElementById('openNewTab').addEventListener('click', ()=>{
+    document.getElementById('openNewTab').addEventListener('click', () => {
       const url = embedIframe.src;
       if(!url || url === 'about:blank'){
         alert('No hay enlace embebido configurado. Reemplaza los data-embed con tu URL de Power BI.');
         return;
       }
       window.open(url, '_blank', 'noopener');
-    })
+    });
 
     // Botón que vuelve al principio de la página
-    document.getElementById('scrollTop').addEventListener('click', ()=>{
+    document.getElementById('scrollTop').addEventListener('click', () => {
       window.scrollTo({top:0,behavior:'smooth'});
-    })
+    });
 
     // Al cargar, mostrar el menú (útil si vuelves a la página)
     menuView.style.display = 'block';
